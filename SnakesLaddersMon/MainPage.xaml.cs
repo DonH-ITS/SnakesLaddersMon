@@ -12,6 +12,7 @@ namespace SnakesLaddersMon
             SetUpEverything();
         }
 
+
         private void SetUpEverything() {
             random = new Random();
             CreatetheGrid();
@@ -74,6 +75,55 @@ namespace SnakesLaddersMon
                     };
                     GridGameTable.Add(border, j, i);
                 }
+            }
+        }
+
+        private Ellipse drawcircle() {
+            Ellipse ell = new Ellipse()
+            {
+                Fill = Color.FromArgb("#000000"),
+                VerticalOptions = LayoutOptions.Center,
+                HorizontalOptions = LayoutOptions.Center
+            };
+            return ell;
+        }
+
+        private void FillDiceGrid(int i, Grid grid) {
+            switch (i) {
+                case 1:
+                    grid.Add(drawcircle(), 1, 1);
+                    break;
+                case 2:
+                    grid.Add(drawcircle(), 0, 0);
+                    grid.Add(drawcircle(), 2, 2);
+                    break;
+                case 3:
+                    for (int j = 0; j < 3; j++) {
+                        grid.Add(drawcircle(), j, j);
+                    }
+                    break;
+                case 4:
+                    for (int j = 0; j < 3; j += 2) {
+                        for (int k = 0; k < 3; k += 2) {
+                            grid.Add(drawcircle(), j, k);
+                        }
+                    }
+                    break;
+                case 5:
+                    for (int j = 0; j < 3; j += 2) {
+                        for (int k = 0; k < 3; k += 2) {
+                            grid.Add(drawcircle(), j, k);
+                        }
+                    }
+                    grid.Add(drawcircle(), 1, 1);
+                    break;
+                case 6:
+                    for (int j = 0; j < 3; j += 2) {
+                        for (int k = 0; k < 3; ++k) {
+                            grid.Add(drawcircle(), k, j);
+                        }
+                    }
+                    break;
             }
         }
 

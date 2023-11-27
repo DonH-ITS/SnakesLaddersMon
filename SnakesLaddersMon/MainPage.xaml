@@ -15,6 +15,28 @@
                Grid.ColumnSpan="10" Grid.RowSpan="10"
                /> -->
     <!--    <Label x:Name="DiceLbl" Grid.Row="11" Grid.Column="1"/>-->
+        <Border 
+            Grid.Row="10" Grid.Column="1"
+            Grid.ColumnSpan="2" Grid.RowSpan="2"
+            StrokeThickness="4"
+        StrokeShape="RoundRectangle 2,2,2,2"
+        Background="#FFFFFF"
+        Padding="2,2"
+        HorizontalOptions="Fill"
+        Scale="0.9"
+                VerticalOptions="Fill">
+            <Border.Stroke>
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Color="Orange"
+                          Offset="0.1" />
+                    <GradientStop Color="Brown"
+                          Offset="1.0" />
+                </LinearGradientBrush>
+            </Border.Stroke>
+            <Grid x:Name="DiceGrid" RowDefinitions="*,*,*"
+                  ColumnDefinitions="*,*,*"/>
+        </Border>
+
 
         <Button x:Name="RollDice" Text="Roll" Grid.Row="11" Grid.Column="7" Grid.ColumnSpan="2"
                 Clicked="RollDice_Clicked"/>
