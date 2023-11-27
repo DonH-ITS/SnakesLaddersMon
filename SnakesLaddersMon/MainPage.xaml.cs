@@ -5,10 +5,21 @@ namespace SnakesLaddersMon
     public partial class MainPage : ContentPage
     {
         private Color boardColour = Color.FromArgb("#2B0B98");
+        Random random;
 
         public MainPage() {
             InitializeComponent();
+            SetUpEverything();
+        }
+
+        private void SetUpEverything() {
+            random = new Random();
             CreatetheGrid();
+        }
+
+        private int RolltheDice() {
+            int amount = random.Next(1, 7);
+            return amount;
         }
 
         private int whichnumber(int row, int column) {
@@ -66,6 +77,9 @@ namespace SnakesLaddersMon
             }
         }
 
+        private void RollDice_Clicked(object sender, EventArgs e) {
+            //DiceLbl.Text = RolltheDice().ToString();
+        }
     }
 
 
