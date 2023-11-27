@@ -141,8 +141,18 @@ namespace SnakesLaddersMon
         }
 
         private async Task RollDiceUsingGrid() {
-            int amount = random.Next(1, 7);
-            FillDiceGrid(amount, DiceGrid);
+            int howmanyspins = random.Next(4, 10);
+            int amount = 0;
+            int lastthrow = 0;
+            for (int i = 0; i < howmanyspins; i++) {
+                await DiceBorder.RotateYTo(DiceBorder.RotationY+90, 150);
+                do {
+                    amount = random.Next(1, 7);
+                } while (amount == lastthrow);
+                lastthrow = amount;
+                FillDiceGrid(amount, DiceGrid);
+                await DiceBorder.RotateYTo(DiceBorder.RotationY + 90, 150);
+            }
         }
 
         private async void RollDice_Clicked(object sender, EventArgs e) {
