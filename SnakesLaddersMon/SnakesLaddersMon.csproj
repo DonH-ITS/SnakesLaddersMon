@@ -32,7 +32,6 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
 
 		<!-- Splash Screen -->
 
@@ -47,7 +46,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="Resources\AppIcon\svg.svg" />
+	  <None Remove="Resources\AppIcon\appicon.svg" />
+	  <None Remove="Resources\Images\snakeboard.png" />
 	  <None Remove="Resources\Splash\svg.svg" />
 	</ItemGroup>
 
@@ -56,11 +56,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Resources\Images\" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <MauiSplashScreen Include="Resources\AppIcon\svg.svg" />
+	  <MauiIcon Include="Resources\AppIcon\appicon.svg" />
 	  <MauiSplashScreen Include="Resources\Splash\svg.svg" />
 	</ItemGroup>
 
