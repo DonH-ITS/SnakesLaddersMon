@@ -155,6 +155,23 @@ namespace SnakesLaddersMon
             }
         }
 
+        private async Task RollDiceUsingImages() {
+            /*   int howmany = random.Next(4, 10);
+               int which = 0;
+               int last = 0;
+               for(int i= 0; i < howmany; ++i) {
+                   await DiceImg.RotateYTo(DiceImg.RotationY+90, DICE_DELAY / 2);
+                   do {
+                       which = random.Next(1, 7);
+                   } while (which == last);
+                   last = which;
+                   DiceImg.Source = ImageSource.FromFile("dice" + which + ".png");
+                   await DiceImg.RotateYTo(DiceImg.RotationY + 90, DICE_DELAY / 2);     
+               }
+
+               rollingdice = false;*/
+        }
+
         private async void RollDice_Clicked(object sender, EventArgs e) {
             //DiceLbl.Text = RolltheDice().ToString();
             await RollDiceUsingGrid();
