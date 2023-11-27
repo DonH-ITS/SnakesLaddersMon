@@ -11,6 +11,22 @@ namespace SnakesLaddersMon
             CreatetheGrid();
         }
 
+        private int whichnumber(int row, int column) {
+            if( row % 2 == 0 ) {
+                int start = 100 - (row * 10);
+                return start - column;
+            }
+            else {
+                int start = (9 - row) * 10 + 1;
+                return start + column;
+            }
+        }
+
+        private LayoutOptions horizontaloption(int row) {
+            if (row % 2 == 0) return LayoutOptions.Start;
+            else return LayoutOptions.End;
+        }
+
 
         public void CreatetheGrid() {
             for(int i=0; i < 10; ++i) {
@@ -19,7 +35,7 @@ namespace SnakesLaddersMon
                     {
                         StrokeThickness = 2,
                         Background = boardColour,
-                        Padding = new Thickness(2, 2),
+                        Padding = new Thickness(3, 3),
                         HorizontalOptions = LayoutOptions.Fill,
                         VerticalOptions = LayoutOptions.Fill,
                         StrokeShape = new RoundRectangle
@@ -37,10 +53,12 @@ namespace SnakesLaddersMon
                         },
                         Content = new Label
                         {
-                            Text = ".NET MAUI",
+                            Text = whichnumber(i, j).ToString(),
                             TextColor = Colors.White,
-                            FontSize = 7,
-                            FontAttributes = FontAttributes.Bold
+                            FontSize = 10,
+                            FontAttributes = FontAttributes.Bold,
+                            //VerticalOptions = LayoutOptions.Center,
+                            HorizontalOptions = horizontaloption(i)
                         }
                     };
                     GridGameTable.Add(border, j, i);
