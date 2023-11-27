@@ -18,10 +18,10 @@ namespace SnakesLaddersMon
             CreatetheGrid();
         }
 
-        private int RolltheDice() {
+       /* private int RolltheDice() {
             int amount = random.Next(1, 7);
             return amount;
-        }
+        }*/
 
         private int whichnumber(int row, int column) {
             if( row % 2 == 0 ) {
@@ -88,7 +88,20 @@ namespace SnakesLaddersMon
             return ell;
         }
 
+        private void CleartheGrid(Grid grid) {
+            List<View> childrenToRemove = new();
+            foreach (var item in grid.Children) {
+                if (item.GetType() == typeof(Ellipse)) {
+                    childrenToRemove.Add((Ellipse)item);
+                }
+            }
+            foreach (var item in childrenToRemove) {
+                grid.Remove(item);
+            }
+        }
+
         private void FillDiceGrid(int i, Grid grid) {
+            CleartheGrid(grid);
             switch (i) {
                 case 1:
                     grid.Add(drawcircle(), 1, 1);
@@ -127,8 +140,14 @@ namespace SnakesLaddersMon
             }
         }
 
-        private void RollDice_Clicked(object sender, EventArgs e) {
+        private async Task RollDiceUsingGrid() {
+            int amount = random.Next(1, 7);
+            FillDiceGrid(amount, DiceGrid);
+        }
+
+        private async void RollDice_Clicked(object sender, EventArgs e) {
             //DiceLbl.Text = RolltheDice().ToString();
+            await RollDiceUsingGrid();
         }
     }
 
