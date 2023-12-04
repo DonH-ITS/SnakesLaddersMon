@@ -8,6 +8,8 @@ namespace SnakesLaddersMon
         Random random;
         private bool dicerolling;
         private List<SnakeLadder> snakesladders;
+        private List<Player> players;
+        private int playerGo;
 
         public bool DiceRolling
         {
@@ -37,12 +39,19 @@ namespace SnakesLaddersMon
             CreatetheGrid();
             FillDiceGrid(1, DiceGrid);
             PlaceSnakesLadders();
+            InitialisePlayers();
         }
 
         private void PlaceSnakesLadders() {
             snakesladders = new List<SnakeLadder>();
             snakesladders.Add(new SnakeLadder(9, 8, 3, 6, GridGameTable));
             snakesladders.Add(new SnakeLadder(7, 2, 7, 4, GridGameTable));
+        }
+
+        private void InitialisePlayers() {
+            players = new List<Player>();
+            playerGo = 0;
+            players.Add(new Player(GridGameTable, player1piece));
         }
 
        /* private int RolltheDice() {
@@ -180,6 +189,7 @@ namespace SnakesLaddersMon
                 FillDiceGrid(amount, DiceGrid);
                 await DiceBorder.RotateYTo(DiceBorder.RotationY + 90, 150);
             }
+            await players[playerGo].MovePlayer(amount);
         }
 
         private async Task RollDiceUsingImages() {
