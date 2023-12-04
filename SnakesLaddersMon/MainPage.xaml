@@ -39,7 +39,7 @@
 
         <!--<Image x:Name="DiceImg" IsVisible="False" Grid.Row="10" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="2" Source="dice1.png" Scale="0.9" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="White"/>-->
 
-        <Button x:Name="RollDice" Text="Roll" Grid.Row="11" Grid.Column="7" Grid.ColumnSpan="2"
+        <Button x:Name="RollDice" IsEnabled="{Binding NotDiceRolling}" Text="Roll" Grid.Row="11" Grid.Column="7" Grid.ColumnSpan="2"
                 Clicked="RollDice_Clicked"/>
 
     </Grid>

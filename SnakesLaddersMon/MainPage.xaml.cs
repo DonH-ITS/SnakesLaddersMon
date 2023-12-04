@@ -6,15 +6,33 @@ namespace SnakesLaddersMon
     {
         private Color boardColour = Color.FromArgb("#2B0B98");
         Random random;
+        private bool dicerolling; 
+
+        public bool DiceRolling
+        {
+            get => dicerolling;
+            set
+            {
+                if (dicerolling == value)
+                    return;
+                dicerolling = value;
+                OnPropertyChanged();
+                OnPropertyChanged(nameof(NotDiceRolling);
+            }
+        }
+
+        public bool NotDiceRolling => !DiceRolling;
 
         public MainPage() {
             InitializeComponent();
             SetUpEverything();
+            BindingContext = this;
         }
 
 
         private void SetUpEverything() {
             random = new Random();
+            dicerolling = false;
             CreatetheGrid();
         }
 
@@ -174,7 +192,11 @@ namespace SnakesLaddersMon
 
         private async void RollDice_Clicked(object sender, EventArgs e) {
             //DiceLbl.Text = RolltheDice().ToString();
+            if (DiceRolling)
+                return;
+            DiceRolling = true;
             await RollDiceUsingGrid();
+            DiceRolling = false;
         }
     }
 
