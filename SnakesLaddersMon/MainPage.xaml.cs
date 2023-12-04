@@ -6,7 +6,8 @@ namespace SnakesLaddersMon
     {
         private Color boardColour = Color.FromArgb("#2B0B98");
         Random random;
-        private bool dicerolling; 
+        private bool dicerolling;
+        private List<SnakeLadder> snakesladders;
 
         public bool DiceRolling
         {
@@ -35,6 +36,13 @@ namespace SnakesLaddersMon
             dicerolling = false;
             CreatetheGrid();
             FillDiceGrid(1, DiceGrid);
+            PlaceSnakesLadders();
+        }
+
+        private void PlaceSnakesLadders() {
+            snakesladders = new List<SnakeLadder>();
+            snakesladders.Add(new SnakeLadder(9, 8, 3, 6, GridGameTable));
+            snakesladders.Add(new SnakeLadder(7, 2, 7, 4, GridGameTable));
         }
 
        /* private int RolltheDice() {
