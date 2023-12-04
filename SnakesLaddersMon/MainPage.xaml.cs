@@ -17,7 +17,7 @@ namespace SnakesLaddersMon
                     return;
                 dicerolling = value;
                 OnPropertyChanged();
-                OnPropertyChanged(nameof(NotDiceRolling);
+                OnPropertyChanged(nameof(NotDiceRolling));
             }
         }
 
