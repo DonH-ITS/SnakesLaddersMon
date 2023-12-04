@@ -34,6 +34,7 @@ namespace SnakesLaddersMon
             random = new Random();
             dicerolling = false;
             CreatetheGrid();
+            FillDiceGrid(1, DiceGrid);
         }
 
        /* private int RolltheDice() {
