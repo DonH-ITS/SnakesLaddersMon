@@ -46,6 +46,17 @@ namespace SnakesLaddersMon
             snakesladders = new List<SnakeLadder>();
             snakesladders.Add(new SnakeLadder(9, 8, 3, 6, GridGameTable));
             snakesladders.Add(new SnakeLadder(7, 2, 7, 4, GridGameTable));
+
+            snakesladders.Add(new SnakeLadder(0, 5, 2, 2, GridGameTable));
+
+            snakesladders.Add(new SnakeLadder(8, 9, 2, 2, GridGameTable));
+
+
+            snakesladders.Add(new SnakeLadder(0, 3, 4, 6, GridGameTable));
+            snakesladders.Add(new SnakeLadder(3, 6, 9, 7, GridGameTable));
+
+            snakesladders.Add(new SnakeLadder(2, 7, 6, 6, GridGameTable));
+            snakesladders.Add(new SnakeLadder(1, 4, 3, 3, GridGameTable));
         }
 
         private void InitialisePlayers() {
@@ -189,7 +200,15 @@ namespace SnakesLaddersMon
                 FillDiceGrid(amount, DiceGrid);
                 await DiceBorder.RotateYTo(DiceBorder.RotationY + 90, 150);
             }
+            amount = 17;
             await players[playerGo].MovePlayer(amount);
+            int[] plpos = players[playerGo].PlayerPos; 
+            foreach (var boardpiece in snakesladders) {
+                if (boardpiece.IsStartingPlace(plpos[0], plpos[1])) {
+                    await players[playerGo].MovePlayerSnakeLadder(boardpiece.EndPos[0], boardpiece.EndPos[1]);
+                    break;
+                }
+            }
         }
 
         private async Task RollDiceUsingImages() {
