@@ -47,16 +47,21 @@ namespace SnakesLaddersMon
             snakesladders.Add(new SnakeLadder(9, 8, 3, 6, GridGameTable));
             snakesladders.Add(new SnakeLadder(7, 2, 7, 4, GridGameTable));
 
+            //Straight snakes
             snakesladders.Add(new SnakeLadder(0, 5, 2, 2, GridGameTable));
-
             snakesladders.Add(new SnakeLadder(8, 9, 2, 2, GridGameTable));
 
-
+            //4x3 snakes
             snakesladders.Add(new SnakeLadder(0, 3, 4, 6, GridGameTable));
             snakesladders.Add(new SnakeLadder(3, 6, 9, 7, GridGameTable));
 
-            snakesladders.Add(new SnakeLadder(2, 7, 6, 6, GridGameTable));
-            snakesladders.Add(new SnakeLadder(1, 4, 3, 3, GridGameTable));
+            //3x2 snakes
+            snakesladders.Add(new SnakeLadder(5, 7, 4, 3, GridGameTable));
+            snakesladders.Add(new SnakeLadder(7, 9, 1, 2, GridGameTable));
+
+            //Diagonal snakes
+            snakesladders.Add(new SnakeLadder(7, 8, 6, 5, GridGameTable));
+            snakesladders.Add(new SnakeLadder(0, 1, 1, 2, GridGameTable));
         }
 
         private void InitialisePlayers() {
