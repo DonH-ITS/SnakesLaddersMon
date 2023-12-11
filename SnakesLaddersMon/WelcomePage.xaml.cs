@@ -31,6 +31,7 @@ public partial class WelcomePage : ContentPage
 
     private async void PlayGame_Clicked(object sender, EventArgs e) {
         //Navigate to MainPage
+        Preferences.Default.Set("devicewidth", this.Width);
         Preferences.Default.Set("numberplayers", numberplayers);
         await Shell.Current.GoToAsync("//MainPage");
     }

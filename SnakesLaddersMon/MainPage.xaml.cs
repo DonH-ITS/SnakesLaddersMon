@@ -135,10 +135,20 @@ namespace SnakesLaddersMon
 
 
         public void CreatetheGrid() {
+            double devicewidth = Preferences.Default.Get("devicewidth", 480.0);
+            if(devicewidth < 480) {
+                int newwidth = ((int)devicewidth / 10) * 10;
+                GridGameTable.WidthRequest = newwidth;
+                GridGameTable.HeightRequest = ((int)devicewidth / 10) * 12;
+            }
+            int margin = 0;
+            if (DeviceInfo.Current.Platform == DevicePlatform.Android)
+                margin = -2;
             for(int i=0; i < 10; ++i) {
                 for(int j=0; j < 10; ++j) {
                     Border border = new Border
                     {
+                        Margin = margin,
                         StrokeThickness = 2,
                         Padding = new Thickness(3, 3),
                         HorizontalOptions = LayoutOptions.Fill,
@@ -292,7 +302,6 @@ namespace SnakesLaddersMon
         private void UpdateSettings() {
             Resources["GridColour1"] = Color.FromArgb(set.GRID_COLOUR1);
             Resources["GridColour2"] = Color.FromArgb(set.GRID_COLOUR2);
-            Console.WriteLine("hello");
         }
 
         private async void Settings_Clicked(object sender, EventArgs e) {

@@ -13,10 +13,15 @@ public partial class SettingsPage : ContentPage
 	public event EventHandler<bool> GoingBackToMain;
 
     protected override bool OnBackButtonPressed() {
-        bool returnvalue = base.OnBackButtonPressed();
         set.SaveSettingsJson();
         GoingBackToMain?.Invoke(this, true);
-		return returnvalue;
+		return base.OnBackButtonPressed();
         
+    }
+
+    private async void SaveBtn_Clicked(object sender, EventArgs e) {
+        set.SaveSettingsJson();
+        GoingBackToMain?.Invoke(this, true);
+        await Navigation.PopAsync();
     }
 }

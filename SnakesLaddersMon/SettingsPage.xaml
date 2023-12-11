@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SnakesLaddersMon.SettingsPage"
              Title="Settings Page">
+
     <VerticalStackLayout>
         <Grid ColumnDefinitions="*,*" RowDefinitions="*,*">
             <Label Text="Grid Colour 1" Grid.Column="0" Grid.Row="0" HorizontalOptions="End"/>
@@ -11,5 +12,6 @@
             <Entry Text="{Binding GRID_COLOUR2}" Grid.Column="1" Grid.Row="1" HorizontalOptions="Start"/>
             
         </Grid>
+        <Button Text="Save" Clicked="SaveBtn_Clicked"/>
     </VerticalStackLayout>
 </ContentPage>

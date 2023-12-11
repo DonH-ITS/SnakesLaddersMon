@@ -18,7 +18,7 @@
     </ContentPage.ToolbarItems>
     <Grid x:Name="GridGameTable" BackgroundColor="Blue" 
           HorizontalOptions="Center"
-          VerticalOptions="Center"
+          VerticalOptions="Start"
           HeightRequest="576"
           WidthRequest="480" RowDefinitions="*,*,*,*,*,*,*,*,*,*,*,*"
           ColumnDefinitions="*,*,*,*,*,*,*,*,*,*">
