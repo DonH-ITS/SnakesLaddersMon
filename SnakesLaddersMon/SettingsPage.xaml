@@ -3,12 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SnakesLaddersMon.SettingsPage"
              Title="Settings Page">
+
+    <ContentPage.Resources>
+        <OnPlatform x:Key="showBack" x:TypeArguments="x:Boolean">
+            <On Platform="Android" Value="false"/>
+            <On Platform="WinUI" Value="true"/>
+            <On Platform="iOS" Value="true"/>
+        </OnPlatform>
+    </ContentPage.Resources>
     
     <!-- The Back Button at the top does not call the same way in Windows and Android
-    so we'll just disable it altogether.
+    so we'll just disable it on Android altogether.
     The Android physical back button will still work -->
     <Shell.BackButtonBehavior>
-        <BackButtonBehavior IsEnabled="False" IsVisible="false"/>
+        <BackButtonBehavior IsEnabled="{StaticResource showBack}" IsVisible="{StaticResource showBack}"/>
     </Shell.BackButtonBehavior>
     <VerticalStackLayout>
         <Grid ColumnDefinitions="*,*" RowDefinitions="*,*">
