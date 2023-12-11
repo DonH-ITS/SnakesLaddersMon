@@ -8,7 +8,7 @@ namespace SnakesLaddersMon
         private int StartCol;
         private int EndCol;
         private Image image;
-        private Grid grid;
+        static public Grid grid;
 
         public int[] EndPos
         {
@@ -21,12 +21,11 @@ namespace SnakesLaddersMon
             }
         }
 
-        public SnakeLadder(int startR, int EndR, int StartC, int EndC, Grid grid) {
+        public SnakeLadder(int startR, int EndR, int StartC, int EndC) {
             this.StartRow = startR;
             this.EndRow = EndR;
             this.StartCol = StartC;
             this.EndCol = EndC;
-            this.grid = grid;
             if (StartRow > EndRow) {
                 placeladderongrid();
             }

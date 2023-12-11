@@ -43,31 +43,33 @@ namespace SnakesLaddersMon
         }
 
         private void PlaceSnakesLadders() {
+            SnakeLadder.grid = GridGameTable; 
             snakesladders = new List<SnakeLadder>();
-            snakesladders.Add(new SnakeLadder(9, 8, 3, 6, GridGameTable));
-            snakesladders.Add(new SnakeLadder(7, 2, 7, 4, GridGameTable));
+            snakesladders.Add(new SnakeLadder(9, 8, 3, 6));
+            snakesladders.Add(new SnakeLadder(7, 2, 7, 4));
 
             //Straight snakes
-            snakesladders.Add(new SnakeLadder(0, 5, 2, 2, GridGameTable));
-            snakesladders.Add(new SnakeLadder(8, 9, 2, 2, GridGameTable));
+            snakesladders.Add(new SnakeLadder(0, 5, 2, 2));
+            snakesladders.Add(new SnakeLadder(8, 9, 2, 2));
 
             //4x3 snakes
-            snakesladders.Add(new SnakeLadder(0, 3, 4, 6, GridGameTable));
-            snakesladders.Add(new SnakeLadder(3, 6, 9, 7, GridGameTable));
+            snakesladders.Add(new SnakeLadder(0, 3, 4, 6));
+            snakesladders.Add(new SnakeLadder(3, 6, 9, 7));
 
             //3x2 snakes
-            snakesladders.Add(new SnakeLadder(5, 7, 4, 3, GridGameTable));
-            snakesladders.Add(new SnakeLadder(7, 9, 1, 2, GridGameTable));
+            snakesladders.Add(new SnakeLadder(5, 7, 4, 3));
+            snakesladders.Add(new SnakeLadder(7, 9, 1, 2));
 
             //Diagonal snakes
-            snakesladders.Add(new SnakeLadder(7, 8, 6, 5, GridGameTable));
-            snakesladders.Add(new SnakeLadder(0, 1, 1, 2, GridGameTable));
+            snakesladders.Add(new SnakeLadder(7, 8, 6, 5));
+            snakesladders.Add(new SnakeLadder(0, 1, 1, 2));
         }
 
         private void InitialisePlayers() {
+            Player.grid = GridGameTable;
             players = new List<Player>();
             playerGo = 0;
-            players.Add(new Player(GridGameTable, player1piece));
+            players.Add(new Player(player1piece));
         }
 
        /* private int RolltheDice() {
@@ -205,7 +207,6 @@ namespace SnakesLaddersMon
                 FillDiceGrid(amount, DiceGrid);
                 await DiceBorder.RotateYTo(DiceBorder.RotationY + 90, 150);
             }
-            amount = 17;
             await players[playerGo].MovePlayer(amount);
             int[] plpos = players[playerGo].PlayerPos; 
             foreach (var boardpiece in snakesladders) {

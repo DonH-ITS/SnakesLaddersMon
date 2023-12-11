@@ -50,6 +50,9 @@
 	  <None Remove="Resources\Images\ladder01.svg" />
 	  <None Remove="Resources\Images\ladder02.svg" />
 	  <None Remove="Resources\Images\player1.svg" />
+	  <None Remove="Resources\Images\player2.svg" />
+	  <None Remove="Resources\Images\player3.svg" />
+	  <None Remove="Resources\Images\player4.svg" />
 	  <None Remove="Resources\Images\snake1.svg" />
 	  <None Remove="Resources\Images\snake2.svg" />
 	  <None Remove="Resources\Images\snake3.svg" />

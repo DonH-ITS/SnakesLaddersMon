@@ -8,7 +8,7 @@ namespace SnakesLaddersMon
         private int row;
         private int col;
         private Image plyimg;
-        private Grid grid;
+        static public Grid grid;
 
         public int[] PlayerPos
         {
@@ -21,11 +21,10 @@ namespace SnakesLaddersMon
             }
         }
 
-        public Player(Grid grid, Image image) {
+        public Player(Image image) {
             this.row = 9;
             this.col = 0;
             this.position = 1;
-            this.grid = grid;
             this.plyimg = image;
         }
 
