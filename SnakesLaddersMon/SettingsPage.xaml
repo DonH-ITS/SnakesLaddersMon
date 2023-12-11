@@ -2,8 +2,11 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SnakesLaddersMon.SettingsPage"
-             Title="Settings Page">
-
+             Title="Settings Page"
+             NavigationPage.HasBackButton="False">
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior IsVisible="False" />
+    </Shell.BackButtonBehavior>
     <VerticalStackLayout>
         <Grid ColumnDefinitions="*,*" RowDefinitions="*,*">
             <Label Text="Grid Colour 1" Grid.Column="0" Grid.Row="0" HorizontalOptions="End"/>
