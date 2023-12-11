@@ -2,10 +2,13 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SnakesLaddersMon.SettingsPage"
-             Title="Settings Page"
-             NavigationPage.HasBackButton="False">
+             Title="Settings Page">
+    
+    <!-- The Back Button at the top does not call the same way in Windows and Android
+    so we'll just disable it altogether.
+    The Android physical back button will still work -->
     <Shell.BackButtonBehavior>
-        <BackButtonBehavior IsVisible="False" />
+        <BackButtonBehavior IsEnabled="False" IsVisible="false"/>
     </Shell.BackButtonBehavior>
     <VerticalStackLayout>
         <Grid ColumnDefinitions="*,*" RowDefinitions="*,*">

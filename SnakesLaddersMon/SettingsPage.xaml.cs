@@ -8,12 +8,11 @@ public partial class SettingsPage : ContentPage
 		InitializeComponent();
 		this.set = mainset;
 		BindingContext = set;
-	}
+    }
 
 	public event EventHandler<bool> GoingBackToMain;
 
     protected override bool OnBackButtonPressed() {
-        set.SaveSettingsJson();
         GoingBackToMain?.Invoke(this, true);
 		return base.OnBackButtonPressed();
         
