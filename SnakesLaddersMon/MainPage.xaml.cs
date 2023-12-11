@@ -42,7 +42,7 @@ namespace SnakesLaddersMon
             CreatetheGrid();
             FillDiceGrid(1, DiceGrid);
             PlaceSnakesLadders();
-            InitialisePlayers(3);
+            InitialisePlayers(Preferences.Default.Get("numberplayers", 2));
             string filename = System.IO.Path.Combine(FileSystem.Current.AppDataDirectory, "settings.json");
             if (File.Exists(filename)) {
                 try {

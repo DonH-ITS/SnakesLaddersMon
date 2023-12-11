@@ -6,6 +6,11 @@
     xmlns:local="clr-namespace:SnakesLaddersMon"
     Shell.FlyoutBehavior="Disabled">
 
+
+    <ShellContent
+    Title="Welcome"
+    ContentTemplate="{DataTemplate local:WelcomePage}"
+    Route="WelcomePage" />
     <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
