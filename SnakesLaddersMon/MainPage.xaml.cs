@@ -10,6 +10,7 @@ namespace SnakesLaddersMon
         private List<SnakeLadder> snakesladders;
         private List<Player> players;
         private int playerGo;
+        private int numberOfPlayers;
 
         public bool DiceRolling
         {
@@ -39,7 +40,7 @@ namespace SnakesLaddersMon
             CreatetheGrid();
             FillDiceGrid(1, DiceGrid);
             PlaceSnakesLadders();
-            InitialisePlayers();
+            InitialisePlayers(3);
         }
 
         private void PlaceSnakesLadders() {
@@ -65,11 +66,32 @@ namespace SnakesLaddersMon
             snakesladders.Add(new SnakeLadder(0, 1, 1, 2));
         }
 
-        private void InitialisePlayers() {
+        private void InitialisePlayers(int count) {
             Player.grid = GridGameTable;
             players = new List<Player>();
             playerGo = 0;
-            players.Add(new Player(player1piece));
+            for(int i=0; i< count; ++i) {
+                switch (i) {
+                    case 0:
+                        players.Add(new Player(player1piece));
+                        player1piece.IsVisible = true;
+                        break;
+                    case 1:
+                        players.Add(new Player(player2piece));
+                        player2piece.IsVisible = true;
+                        break;
+                    case 2:
+                        players.Add(new Player(player3piece));
+                        player3piece.IsVisible = true;
+                        break;
+                    case 3:
+                        players.Add(new Player(player4piece));
+                        player4piece.IsVisible = true;
+                        break;
+                }
+            }
+            
+            numberOfPlayers = count;
         }
 
        /* private int RolltheDice() {
@@ -215,6 +237,9 @@ namespace SnakesLaddersMon
                     break;
                 }
             }
+            playerGo++;
+            if (playerGo == numberOfPlayers)
+                playerGo = 0;
         }
 
         private async Task RollDiceUsingImages() {

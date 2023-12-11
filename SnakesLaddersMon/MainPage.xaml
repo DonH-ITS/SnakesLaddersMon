@@ -38,13 +38,13 @@
         </Border>
 
         <Image Source="player1.png" Grid.Row="9" Grid.Column="0" x:Name="player1piece"
-               ZIndex="20"/>
+               ZIndex="20" IsVisible="false"/>
         <Image Source="player2.png" Grid.Row="9" Grid.Column="0" x:Name="player2piece"
-       ZIndex="20"/>
+       ZIndex="20" IsVisible="false"/>
         <Image Source="player3.png" Grid.Row="9" Grid.Column="0" x:Name="player3piece"
-       ZIndex="20"/>
+       ZIndex="20" IsVisible="false"/>
         <Image Source="player4.png" Grid.Row="9" Grid.Column="0" x:Name="player4piece"
-       ZIndex="20"/>
+       ZIndex="20" IsVisible="false"/>
 
         <!--<Image x:Name="DiceImg" IsVisible="False" Grid.Row="10" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="2" Source="dice1.png" Scale="0.9" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="White"/>-->
 
