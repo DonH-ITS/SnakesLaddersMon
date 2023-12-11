@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SnakesLaddersMon.SettingsPage"
+             Title="Settings Page">
+    <VerticalStackLayout>
+        <Grid ColumnDefinitions="*,*" RowDefinitions="*,*">
+            <Label Text="Grid Colour 1" Grid.Column="0" Grid.Row="0" HorizontalOptions="End"/>
+            <Entry Text="{Binding GRID_COLOUR1}" Grid.Column="1" Grid.Row="0" HorizontalOptions="Start"/>
+            <Label Text="Grid Colour 2" Grid.Column="0" Grid.Row="1" HorizontalOptions="End"/>
+            <Entry Text="{Binding GRID_COLOUR2}" Grid.Column="1" Grid.Row="1" HorizontalOptions="Start"/>
+            
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>

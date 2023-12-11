@@ -1,4 +1,5 @@
-﻿using Microsoft.Maui.Controls.Shapes;
+﻿using System.Text.Json;
+using Microsoft.Maui.Controls.Shapes;
 
 namespace SnakesLaddersMon
 {
@@ -11,6 +12,7 @@ namespace SnakesLaddersMon
         private List<Player> players;
         private int playerGo;
         private int numberOfPlayers;
+        private Settings set;
 
         public bool DiceRolling
         {
@@ -41,6 +43,22 @@ namespace SnakesLaddersMon
             FillDiceGrid(1, DiceGrid);
             PlaceSnakesLadders();
             InitialisePlayers(3);
+            string filename = System.IO.Path.Combine(FileSystem.Current.AppDataDirectory, "settings.json");
+            if (File.Exists(filename)) {
+                try {
+                    using (StreamReader reader = new StreamReader(filename)) {
+                        string jsonstring = reader.ReadToEnd();
+                        set = JsonSerializer.Deserialize<Settings>(jsonstring);
+                    }
+                }
+                catch {
+                    set = new Settings();
+                }
+            }
+            else {
+                set = new Settings();
+            }
+            UpdateSettings();
         }
 
         private void PlaceSnakesLadders() {
@@ -122,7 +140,6 @@ namespace SnakesLaddersMon
                     Border border = new Border
                     {
                         StrokeThickness = 2,
-                        Background = boardColour,
                         Padding = new Thickness(3, 3),
                         HorizontalOptions = LayoutOptions.Fill,
                         VerticalOptions = LayoutOptions.Fill,
@@ -149,6 +166,10 @@ namespace SnakesLaddersMon
                             HorizontalOptions = horizontaloption(i)
                         }
                     };
+                    if(whichnumber(i,j) % 2 == 0)
+                        border.SetDynamicResource(Border.BackgroundProperty, "GridColour1");
+                    else
+                        border.SetDynamicResource(Border.BackgroundProperty, "GridColour2");
                     GridGameTable.Add(border, j, i);
                 }
             }
@@ -266,6 +287,23 @@ namespace SnakesLaddersMon
             DiceRolling = true;
             await RollDiceUsingGrid();
             DiceRolling = false;
+        }
+
+        private void UpdateSettings() {
+            Resources["GridColour1"] = Color.FromArgb(set.GRID_COLOUR1);
+            Resources["GridColour2"] = Color.FromArgb(set.GRID_COLOUR2);
+            Console.WriteLine("hello");
+        }
+
+        private async void Settings_Clicked(object sender, EventArgs e) {
+            SettingsPage setpage = new SettingsPage(set);
+            setpage.GoingBackToMain += (s, data) =>
+            {
+                if (data) {
+                    UpdateSettings();
+                }
+            };
+            await Navigation.PushAsync(setpage);
         }
     }
 

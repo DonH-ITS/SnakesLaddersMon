@@ -4,6 +4,18 @@
              x:Class="SnakesLaddersMon.MainPage"
              Title="Snakes and Ladders">
 
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="GridColour1">#FF00AD</Color>
+            <Color x:Key="GridColour2">#FF0000</Color>
+            <Color x:Key="DiceFgColour">#000000</Color>
+            <Color x:Key="DiceBgColour">#FFFFFF</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Clicked="Settings_Clicked"  Text="Settings"/>
+    </ContentPage.ToolbarItems>
     <Grid x:Name="GridGameTable" BackgroundColor="Blue" 
           HorizontalOptions="Center"
           VerticalOptions="Center"
@@ -52,6 +64,7 @@
                 Clicked="RollDice_Clicked"/>
 
     </Grid>
+    
 
    
 
